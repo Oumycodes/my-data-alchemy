@@ -1,23 +1,23 @@
 # main.py
 import pandas as pd
 from news_api import get_news_data
-from hn_scraper import scrape_hn_headlines
+from techcrunch_scraper import scrape_techcrunch  # <-- CHANGED IMPORT
 from deepseek_enrichment import enrich_with_deepseek
 
 def main():
     print("Starting the ETL pipeline...")
 
     # EXTRACT
-    print("[1/4] Extracting data from NewsAPI...")
+    print("[1/4] Extracting data from Mediastack...")  # <-- CHANGED MESSAGE
     news_df = get_news_data()
 
-    print("[2/4] Scraping data from Hacker News...")
-    hn_df = scrape_hn_headlines()
+    print("[2/4] Scraping data from TechCrunch...")    # <-- CHANGED MESSAGE
+    tc_df = scrape_techcrunch()                        # <-- CHANGED FUNCTION NAME & VARIABLE
 
     # COMBINE
     print("Combining data...")
     # Make sure both DataFrames have the same columns
-    combined_df = pd.concat([news_df, hn_df], ignore_index=True)
+    combined_df = pd.concat([news_df, tc_df], ignore_index=True)  # <-- CHANGED VARIABLE
 
     # TRANSFORM (Basic Cleaning)
     print("[3/4] Cleaning data...")
