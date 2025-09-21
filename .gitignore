@@ -1,6 +1,0 @@
-venv/
-.env
-data/raw/
-data/enriched/
-__pycache__/
-*.pyc
