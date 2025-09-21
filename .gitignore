@@ -1,1 +1,7 @@
+# Python
+__pycache__/
+*.pyc
+.env
 
+# API Keys
+config.py
