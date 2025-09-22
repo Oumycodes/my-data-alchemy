@@ -14,6 +14,7 @@ Summary: <result>
 
 Text: {text}
 """
+
 ## Why This Prompt Was Chosen
 
 I designed the prompt this way for specific reasons:
