@@ -1,21 +1,4 @@
 
-# DeepSeek Usage Documentation
-
-## Prompt Used for AI Enrichment
-
-```python
-prompt = f"""
-Perform the following tasks on the text below:
-1. Analyze the sentiment as either 'Positive', 'Negative', or 'Neutral'.
-2. Generate a one-sentence summary.
-
-Return your answer in the exact following format:
-Sentiment: <result>
-Summary: <result>
-
-Text: {text}
-"""
-## Prompt Used for AI Enrichment
 Why This Prompt Was Chosen
 Clear Instructions: The numbered tasks (1. and 2.) make it easy for the AI to understand what is required.
 
