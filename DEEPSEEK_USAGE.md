@@ -23,7 +23,6 @@ I designed this prompt for specific technical reasons:
 
 - **Location**: Used in get_ai_analysis(text) function in deepseek_enrichment.py
 - **Model**: deepseek-chat
-- **Temperature**: 0.1 (low value for consistent, reproducible outputs ideal for data processing)
 - **Headers**: Included authorization and content-type headers as required by API
 
 ## Challenges and Solutions
@@ -35,7 +34,7 @@ I designed this prompt for specific technical reasons:
 
 ## Cost and Usage
 
-- Used provided API key: sk-a7f42564324a433b836f39b479e4dfa8
+- Used provided API key
 - Processed approximately 10-15 news articles total
 - Added rate limiting (1-second delay between calls) to avoid exceeding API limits
 - Total cost: Minimal usage within free tier limits
