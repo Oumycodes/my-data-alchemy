@@ -15,6 +15,7 @@ Summary: <result>
 
 Text: {text}
 """
+## Prompt Used for AI Enrichment
 Why This Prompt Was Chosen
 Clear Instructions: The numbered tasks (1. and 2.) make it easy for the AI to understand what is required.
 
