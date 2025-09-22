@@ -1,3 +1,6 @@
+
+# DeepSeek Usage Documentation
+
 ## Prompt Used for AI Enrichment
 
 ```python
@@ -12,28 +15,26 @@ Summary: <result>
 
 Text: {text}
 """
-## Why This Prompt Was Chosen
+Why This Prompt Was Chosen
+Clear Instructions: The numbered tasks (1. and 2.) make it easy for the AI to understand what is required.
 
-I designed the prompt this way for specific reasons:
+Structured Output: The required format (Sentiment: <result>\nSummary: <result>) is crucial. It allows the Python code to automatically parse the AI's response and add it to the DataFrame as new columns (ai_sentiment, ai_summary). Without this structure, parsing the response would be much harder.
 
-1.  **Numbered Instructions (`1.`, `2.`)**: This makes it very clear for the AI to follow both steps without missing any.
-2.  **Structured Output Format**: The `Sentiment: <result>` format is the most important part. It forces the AI to give a consistent response that my code can easily split and parse into the `ai_sentiment` and `ai_summary` columns. Without this, the AI's answer would be messy and impossible to process automatically.
-3.  **One-Sentence Summary**: This tells the AI to be short and direct, which is perfect for a data table.
+Conciseness: Asking for a "one-sentence summary" guides the AI to be brief and to the point, which is perfect for a dataset summary.
 
-## Implementation Details
+Implementation Details
+Function: The prompt is used in the get_ai_analysis(text) function within deepseek_enrichment.py.
 
--   **File:** The prompt is used in the `get_ai_analysis(text)` function in `deepseek_enrichment.py`.
--   **Model:** `deepseek-chat`
--   **Temperature:** `0.1` (I used a low value to get more consistent, less creative answers, which is better for data processing).
+Model: deepseek-chat
 
-## Challenges and Solutions
+Temperature: Set to 0.1 to ensure more deterministic and consistent outputs, which is essential for automated data processing.
 
--   **Challenge:** Sometimes the AI ignored my format and wrote a long paragraph instead of using `Sentiment: ...` and `Summary: ...`.
--   **Solution:** I made the prompt more strict and added a `try-except` block in the `parse_ai_response()` function to handle any weird responses without crashing the program.
+Challenges and Solutions
+Challenge: Initially, the AI would sometimes respond with creative, non-structured answers that were impossible to parse automatically (e.g., "Sure! I'd be happy to help. The sentiment is positive and the summary is...").
 
-## Cost and Usage
+Solution: The prompt was refined to be extremely specific about the required format. A robust parsing function (parse_ai_response) with try-except blocks was also added to handle any unexpected responses gracefully.
 
--   I used the API key from the assignment.
--   The script processed about 10-15 news articles. I added `time.sleep(1)` between calls to avoid overwhelming the API and to stay within rate limits.
+Cost and Usage
+The assignment-provided API key was used (sk-a7f42564324a433b836f39b479e4dfa8).
 
-
+The pipeline processed approximately 10-15 articles, making a separate API call for each one. With rate limiting (time.sleep(1)), this was a minimal and efficient use of credits.
